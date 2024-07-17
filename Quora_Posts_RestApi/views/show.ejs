@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #00bcd4;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .user-info img {
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .create-post-btn,.edit-post-btn {
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .create-post-btn {
+      background-color: #4caf50;
+    }
+    .create-post-btn:hover {
+      background-color: #45a049;
+    }
+    .edit-post-btn{
+  background-color: #d63384;
+}
+.edit-post-btn:hover{
+  background-color: #d8217d;
+}
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+  </style>
+  <title>Quora Clone</title>
+</head>
+<body>
+
+<header>
+  <h1>Quora Post</h1>
+</header>
+<div class="container">
+  <% if (post) { %>
+  <div class="user-info">
+    <img src="user-avatar.jpg" alt="User Avatar" width="50" height="50">
+    <span>@<%= post.username %></span>
+  </div>
+  
+  <h2><%= post.title %></h2>
+  <p><%= post.content %></p>
+  <div style="display: flex; justify-content: space-between; align-items: center;" >
+      <a style="text-decoration: underline;" href="http://localhost:8000/posts">
+      Go to Home Page
+      </a>
+    
+      <div>
+          <a style="text-decoration: none;" href="http://localhost:8000/posts/new">
+          <button class="create-post-btn">Create Post</button>
+          </a>
+        
+          <a style="text-decoration: none;" href="http://localhost:8000/posts/<%= post.id %>/edit">
+            <button class="edit-post-btn">Edit Post</button>
+            </a> 
+      </div>
+      
+  </div>
+  
+</div>
+  <% } %> 
+</body>
+</html>

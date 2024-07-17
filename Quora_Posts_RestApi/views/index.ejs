@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mini Quora Posts</h1>
+      </header>
+      <div class="container">
+        <a style="text-decoration: none;" href="http://localhost:8000/posts/new">
+          <button class="create-post-btn">Create Post</button>
+        </a> 
+      </div>
+    <% posts.forEach(post=>{ %>
+        <div class="container">
+            <div class="user-info">
+              <img src="user-avatar.jpg" alt="User Avatar" width="50" height="50">
+              <span>@<%= post.username %></span>
+            </div>
+          
+            <h2><%= post.title %></h2>
+            <p><%= post.content %></p>
+
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; ">
+
+                <a href="http://localhost:8000/posts/<%= post.id %>">
+                  See in Detail
+                </a> 
+              
+                <div style="gap: 20px;">
+            <a style="text-decoration: none; display: inline-block; " href="http://localhost:8000/posts/<%= post.id %>/edit">
+                        <button class="edit-post-btn">Edit Post</button>
+                      </a> 
+                    
+      <form method="post" style="display: inline-block;" action="http://localhost:8000/posts/<%= post.id %>?_method=DELETE" >
+                      <a style="text-decoration: none;">
+                      <button class="delete-post-btn">Delete Post</button>
+                      </a> 
+                    </form>
+                </div>
+
+            </div>
+            
+            
+            
+          </div>
+    <% }) %>
+    
+</body>
+</html>
+
